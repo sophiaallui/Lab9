@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +26,7 @@
     }
   </style>
 </head>
+
 <body>
   <fieldset>
     <legend>Error Calculator</legend>
@@ -67,6 +69,65 @@
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
     // TODO - Make buttons functional
+
+    // Console Log 
+    errorBtns[0].addEventListener('click', () => {
+      console.log("Console Log Demo");
+    });
+    // Console Error 
+    errorBtns[1].addEventListener('click', () => {
+      console.error("Console Error Demo");
+    });
+
+    // NEED TO WORK ON DIR AND DIRXML
+    errorBtns[2].addEventListener('click', () => {
+      console.dir(document.section);
+    });
+    errorBtns[3].addEventListener('click', () => {
+      console.dirxml(document.body);
+    });
+
+    // Start the group
+    errorBtns[4].addEventListener('click', () => {
+      console.group();
+    });
+
+    // End the group: 
+    errorBtns[5].addEventListener('click', () => {
+      console.groupEnd();
+    });
+
+    // Console Table: 
+    errorBtns[6].addEventListener('click', () => {
+      var greetings = [["hello", "there"], ["bye", "for now"], ["see", "ya"]]
+      console.table(greetings);
+    });
+
+    // Start the timer
+    errorBtns[7].addEventListener('click', () => {
+      console.log("Timer started!")
+      console.time();
+    });
+
+    // End the timer: 
+    errorBtns[8].addEventListener('click', () => {
+      console.log("Timer ended!")
+      console.timeEnd();
+    });
+
+
+    errorBtns[9].addEventListener('click', () => {
+      console.trace();
+    });
+
+    
+
+
+
+
+
+
   </script>
 </body>
+
 </html>
