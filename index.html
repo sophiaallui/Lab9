@@ -116,9 +116,27 @@
     });
 
 
+    //console traces through all trace methods
     errorBtns[9].addEventListener('click', () => {
-      console.trace();
+      const trace1 = () => { trace2(); };
+      const trace2 = () => { trace3(); };
+      const trace3 = () => { trace4(); };
+      const trace4 = () => { trace5(); };
+      const trace5 = () => { console.trace(); };
+      trace1();
     });
+
+    // try catch by reference error
+    errorBtns[10].addEventListener('click', () => {
+      try {
+        throw new ReferenceError("Console Error Demo");
+      }
+      catch(err){
+        throw err;
+      }
+    });
+
+    //
 
 
   </script>
