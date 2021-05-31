@@ -81,10 +81,10 @@
 
     // NEED TO WORK ON DIR AND DIRXML
     errorBtns[2].addEventListener('click', () => {
-      console.dir(document.section);
+      console.dir(document.head);
     });
     errorBtns[3].addEventListener('click', () => {
-      console.dirxml(document.body);
+      console.dirxml(document);
     });
 
     // Start the group
@@ -129,15 +129,37 @@
     // try catch by reference error
     errorBtns[10].addEventListener('click', () => {
       try {
-        throw new ReferenceError("Console Error Demo");
+        throw new ReferenceError("Bruh this error is so hugeeeeeeeeeeee it went global");
       }
       catch(err){
         throw err;
       }
     });
 
-    //
 
+    //custom error class
+    class MyError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = this.constructor.name;
+      }
+    }
+  
+    //try catch finally
+    try{
+      let button = document.querySelector("#thisbuttondoesntexist");
+      button.innerHTML = "ASDFGHJKL";
+    }
+    catch(err){
+      throw new MyError("Yo, welcome to the page. Here's an error I just caught after you TRIED me.");
+    }
+    finally{
+      console.log("Finally here's yo finally statement, dawg.");
+    }
+
+    window.onerror = () => {
+      console.log("bruh u errored again relaxxxxxx");
+    }
 
   </script>
 </body>
